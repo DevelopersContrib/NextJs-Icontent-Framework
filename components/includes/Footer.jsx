@@ -24,8 +24,10 @@ const Footer = () => {
               src="https://cdn.vnoc.com/logos/logo-new-contrib-06.png"
               alt="Powered by Vercel" 
               loading="lazy" 
-              width="150" 
-              height="25" 
+              width={0} 
+              height={0} 
+              sizes="125px"
+              className="max-w-full h-auto w-full"
             />
             <span className="block text-sm text-gray-500 text-center">
               Powered by
