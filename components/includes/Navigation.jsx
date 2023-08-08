@@ -1,12 +1,12 @@
-"use client"
-import { Disclosure } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+"use client";
+import { Disclosure } from "@headlessui/react";
+import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
-const Navigation = () => {
+const Navigation = ({ domain }) => {
   return (
     <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
@@ -16,54 +16,33 @@ const Navigation = () => {
               <div className="hidden sm:flex sm:space-x-8">
                 <div className="hidden sm:flex sm:space-x-8">
                   {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
-                  <a
-                    href="#"
-                    className="nav-link active"
-                  >
+                  <a href="/" className="nav-link active">
                     Home
                   </a>
-                  <a
-                    href="#"
-                    className="nav-link"
-                  >
+                  <a href="#" className="nav-link">
                     Link
                   </a>
-                  <a
-                    href="#"
-                    className="nav-link"
-                  >
+                  <a href="#" className="nav-link">
                     Link
                   </a>
-                  <a
-                    href="#"
-                    className="nav-link"
-                  >
+                  <a href="#" className="nav-link">
                     Link
                   </a>
                 </div>
               </div>
               <div className="flex w-full items-center md:w-auto">
-                <a href="#" className='inline-flex items-center font-semibold'>
-                iContent Framework
+                <a href="/" className="inline-flex items-center font-semibold">
+                  {domain.charAt(0).toUpperCase() + domain.slice(1)}
                 </a>
               </div>
               <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-                <a
-                  href="#"
-                  className="nav-link"
-                >
+                <a href="#" className="nav-link">
                   Link
                 </a>
-                <a
-                  href="#"
-                  className="nav-link"
-                >
+                <a href="#" className="nav-link">
                   Link
                 </a>
-                <a
-                  href="#"
-                  className="nav-link"
-                >
+                <a href="#" className="nav-link">
                   Link
                 </a>
               </div>
@@ -85,57 +64,29 @@ const Navigation = () => {
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 pb-3 pt-2">
               {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
-              <Disclosure.Button
-                as="a"
-                href="#"
-                className="nav-link-sm active"
-              >
+              <Disclosure.Button as="a" href="#" className="nav-link-sm active">
                 Home
               </Disclosure.Button>
-              <Disclosure.Button
-                as="a"
-                href="#"
-                className="nav-link-sm"
-              >
+              <Disclosure.Button as="a" href="#" className="nav-link-sm">
                 Link
               </Disclosure.Button>
-              <Disclosure.Button
-                as="a"
-                href="#"
-                className="nav-link-sm"
-              >
+              <Disclosure.Button as="a" href="#" className="nav-link-sm">
                 Link
               </Disclosure.Button>
-              <Disclosure.Button
-                as="a"
-                href="#"
-                className="nav-link-sm"
-              >
+              <Disclosure.Button as="a" href="#" className="nav-link-sm">
                 Link
               </Disclosure.Button>
             </div>
             <div className="border-t border-gray-200 pb-3 pt-4">
               <div className="space-y-1 pb-3 pt-2">
                 {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
-                <Disclosure.Button
-                  as="a"
-                  href="#"
-                  className="nav-link-sm"
-                >
+                <Disclosure.Button as="a" href="#" className="nav-link-sm">
                   Link
                 </Disclosure.Button>
-                <Disclosure.Button
-                  as="a"
-                  href="#"
-                  className="nav-link-sm"
-                >
+                <Disclosure.Button as="a" href="#" className="nav-link-sm">
                   Link
                 </Disclosure.Button>
-                <Disclosure.Button
-                  as="a"
-                  href="#"
-                  className="nav-link-sm"
-                >
+                <Disclosure.Button as="a" href="#" className="nav-link-sm">
                   Link
                 </Disclosure.Button>
               </div>
@@ -144,7 +95,7 @@ const Navigation = () => {
         </>
       )}
     </Disclosure>
-  )
-}
+  );
+};
 
-export default Navigation
+export default Navigation;
