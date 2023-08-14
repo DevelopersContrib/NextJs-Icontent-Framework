@@ -19,7 +19,7 @@ const Blog = ({ content }) => {
     <>
       <div className="container px-8 mx-auto xl:px-5  max-w-screen-lg py-5 lg:py-8 !pt-0">
         <div className="mx-auto max-w-screen-md ">
-          <div className="flex justify-center">
+          {/* <div className="flex justify-center">
             <div className="flex gap-3">
               <a href="#">
                 <span className="inline-block text-xs font-medium tracking-wider uppercase   mt-5 text-blue-600">
@@ -27,7 +27,7 @@ const Blog = ({ content }) => {
                 </span>
               </a>
             </div>
-          </div>
+          </div> */}
           <h1 className="text-brand-primary mb-3 mt-2 text-center text-3xl font-semibold tracking-tight dark:text-white lg:text-4xl lg:leading-snug">
             {content[0].blog_title}
           </h1>
