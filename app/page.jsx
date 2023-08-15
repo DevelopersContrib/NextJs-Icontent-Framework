@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import { getDomain } from "@/lib/data";
 import { getBlogs } from "@/lib/blog";
 

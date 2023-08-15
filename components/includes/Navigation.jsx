@@ -19,10 +19,10 @@ const Navigation = ({ domain }) => {
                   <a href="/" className="nav-link active">
                     Home
                   </a>
-                  <a href="#" className="nav-link">
+                  <a href="#" className="About us">
                     Link
                   </a>
-                  <a href="#" className="nav-link">
+                  <a href="#" className="Contact us">
                     Link
                   </a>
                   <a href="#" className="nav-link">
