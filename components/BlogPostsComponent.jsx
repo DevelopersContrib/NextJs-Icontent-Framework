@@ -24,7 +24,9 @@ const BlogPosts = ({ blogs }) => {
                   sizes="100vw"
                   className="object-cover transition-all max-w-full h-auto w-full"
                   alt={blog.blog_title}
-                  src={blog.blog_image ? blog.blog_image : "/lg-image-1.png"}
+                  src={
+                    blog.blog_image ? blog.blog_image : "/default-no-image.png"
+                  }
                 />
               </a>
             </div>

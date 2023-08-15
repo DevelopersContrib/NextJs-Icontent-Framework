@@ -6,9 +6,7 @@ import { useEffect } from "react";
 import { formatDate } from "@/lib/dateTimeHelper";
 
 const Blog = ({ content }) => {
-  useEffect(() => {
-    console.log(content);
-  }, [content]);
+  useEffect(() => {}, [content]);
   return (
     <>
       <div className="container px-8 mx-auto xl:px-5  max-w-screen-lg py-5 lg:py-8 !pt-0">
@@ -70,7 +68,11 @@ const Blog = ({ content }) => {
           width={0}
           height={0}
           alt=""
-          src={content[0].blog_image}
+          src={
+            content[0].blog_image
+              ? content[0].blog_image
+              : "/default-no-image.png"
+          }
           style={{
             position: "absolute",
             height: "100%",
