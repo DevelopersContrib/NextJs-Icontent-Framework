@@ -5,23 +5,24 @@ import { getData } from "@/lib/data";
 
 const Footer = async () => {
   const c = await getData();
+  const date = new Date();
 
   return (
     <div className="container px-8 mx-auto xl:px-5  max-w-screen-lg py-5 lg:py-8 mt-10 border-t border-gray-100 dark:border-gray-800">
       <div className="text-center text-sm">
-        Copyright &copy; 2023 <span className="">iContent Framework</span>. All
-        rights reserved.
+        Copyright &copy; {date.getFullYear()}{" "}
+        <span className="">iContent Framework</span>. All rights reserved.
       </div>
       <div className="mt-1 flex justify-center gap-1 text-center text-sm text-gray-500 dark:text-gray-600">
         <span>
           Made by{" "}
-          <a href="#" rel="noopener" target="_blank">
+          <a href="https://www.contrib.com/" rel="noopener" target="_blank">
             Contrib.com
           </a>
         </span>
         <span>·</span>
         <span>
-          <a href="#" rel="noopener" target="_blank">
+          <a href="https://www.contrib.com/" rel="noopener" target="_blank">
             Vnoc.com
           </a>
         </span>
@@ -29,7 +30,7 @@ const Footer = async () => {
       <div className="mt-2 flex items-center justify-between">
         <div className="mt-5">
           <a
-            href="#"
+            href="https://www.contrib.com/"
             target="_blank"
             rel="noopener"
             className="relative block w-44"
