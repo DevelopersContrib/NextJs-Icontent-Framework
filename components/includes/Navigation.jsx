@@ -19,14 +19,14 @@ const Navigation = ({ domain }) => {
                   <a href="/" className="nav-link active">
                     Home
                   </a>
-                  <a href="#" className="About us">
-                    Link
+                  <a href="/about" className="nav-link">
+                    About us
                   </a>
-                  <a href="#" className="Contact us">
-                    Link
+                  <a href="/apps" className="nav-link">
+                    Apps
                   </a>
-                  <a href="#" className="nav-link">
-                    Link
+                  <a href="/contact" className="nav-link">
+                    Contact us
                   </a>
                 </div>
               </div>
@@ -36,14 +36,14 @@ const Navigation = ({ domain }) => {
                 </a>
               </div>
               <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-                <a href="#" className="nav-link">
-                  Link
+                <a href="/staffing" className="nav-link">
+                  Apply
                 </a>
-                <a href="#" className="nav-link">
-                  Link
+                <a href="/referral" className="nav-link">
+                  Refer
                 </a>
-                <a href="#" className="nav-link">
-                  Link
+                <a href="/partner" className="nav-link">
+                  Partner
                 </a>
               </div>
               <div className="-mr-2 flex items-center sm:hidden">
