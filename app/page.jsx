@@ -2,12 +2,17 @@ import { getDomain } from "@/lib/data";
 import { getBlogs } from "@/lib/blog";
 
 import BlogPosts from "@/components/BlogPostsComponent";
+import Navigation from '@/components/includes/Navigation'
+import Footer from '@/components/includes/Footer'
 
 const Home = async () => {
+
   const domain = getDomain();
   const blogs = await getBlogs(domain);
+
   return (
     <>
+      <Navigation domain={domain} />
       <div className="container px-8 mx-auto xl:px-5  max-w-screen-lg py-5 lg:py-8">
         {/* Start:: 2 Columns */}
         <div className="grid gap-10 md:grid-cols-2 lg:gap-10 ">
@@ -26,6 +31,7 @@ const Home = async () => {
           </a>
         </div>
       </div>
+      <Footer />
     </>
   );
 };
