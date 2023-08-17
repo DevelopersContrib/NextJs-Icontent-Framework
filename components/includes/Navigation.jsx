@@ -1,20 +1,16 @@
 'use client';
 import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import { useEffect } from 'react';
+import { useId } from 'react';
 
 import Logo from '@/components/Logo';
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
-}
-
 const Navigation = ({ domain, logo }) => {
-  useEffect(() => {
-    // console.log(logo);
-  }, []);
+  
+  let id = useId()
+
   return (
-    <Disclosure as="nav" className="bg-white shadow">
+    <Disclosure data-id={id} as="nav" className="bg-white shadow">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-screen-lg px-4 sm:px-6 lg:px-8">
