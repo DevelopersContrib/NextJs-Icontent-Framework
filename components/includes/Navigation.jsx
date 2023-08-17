@@ -1,12 +1,18 @@
-"use client";
-import { Disclosure } from "@headlessui/react";
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+'use client';
+import { Disclosure } from '@headlessui/react';
+import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { useEffect } from 'react';
+
+import Logo from '@/components/Logo';
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(' ');
 }
 
-const Navigation = ({ domain }) => {
+const Navigation = ({ domain, logo }) => {
+  useEffect(() => {
+    // console.log(logo);
+  }, []);
   return (
     <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
@@ -32,7 +38,7 @@ const Navigation = ({ domain }) => {
               </div>
               <div className="flex w-full items-center md:w-auto">
                 <a href="/" className="inline-flex items-center font-semibold">
-                  {domain.charAt(0).toUpperCase() + domain.slice(1)}
+                  <Logo domain={domain} logo={logo} />
                 </a>
               </div>
               <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
@@ -51,11 +57,7 @@ const Navigation = ({ domain }) => {
                 <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
-                  {open ? (
-                    <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
-                  ) : (
-                    <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
-                  )}
+                  {open ? <XMarkIcon className="block h-6 w-6" aria-hidden="true" /> : <Bars3Icon className="block h-6 w-6" aria-hidden="true" />}
                 </Disclosure.Button>
               </div>
             </div>

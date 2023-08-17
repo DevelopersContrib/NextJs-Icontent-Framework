@@ -1,23 +1,21 @@
-import { getDomain } from "@/lib/data";
-import { getBlogs } from "@/lib/blog";
+import { getDomain, getData } from '@/lib/data';
+import { getBlogs } from '@/lib/blog';
 
-import BlogPosts from "@/components/BlogPostsComponent";
-import Navigation from '@/components/includes/Navigation'
-import Footer from '@/components/includes/Footer'
+import BlogPosts from '@/components/BlogPostsComponent';
+import Navigation from '@/components/includes/Navigation';
+import Footer from '@/components/includes/Footer';
 
 const Home = async () => {
-
   const domain = getDomain();
+  const c = await getData();
   const blogs = await getBlogs(domain);
 
   return (
     <>
-      <Navigation domain={domain} />
+      <Navigation domain={domain} logo={c.data.logo} />
       <div className="container px-8 mx-auto xl:px-5  max-w-screen-lg py-5 lg:py-8">
         {/* Start:: 2 Columns */}
-        <div className="grid gap-10 md:grid-cols-2 lg:gap-10 ">
-          {/* Insert BlogPosts here to have 2 columns template */}
-        </div>
+        <div className="grid gap-10 md:grid-cols-2 lg:gap-10 ">{/* Insert BlogPosts here to have 2 columns template */}</div>
         {/* Start:: 3 Columns */}
         <div className="mt-10 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3 ">
           <BlogPosts blogs={blogs} />
