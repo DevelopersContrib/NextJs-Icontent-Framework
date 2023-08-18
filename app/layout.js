@@ -2,6 +2,9 @@ import './globals.scss'
 import HeaderScript from '@/components/includes/HeaderScript'
 import { getData, getDomain } from '@/lib/data'
 
+import Navigation from '@/components/includes/Navigation';
+import Footer from '@/components/includes/Footer';
+
 export async function generateMetadata() {
   const c = await getData();
 
@@ -13,13 +16,20 @@ export async function generateMetadata() {
 	}
 }
 
-export default function RootLayout({ children }) {
-
+export default async function RootLayout({ children }) {
+  const c = await getData();
+  const socials = {
+    fb: c.data.fb,
+    linkedin: c.data.linkedin,
+    twiiter: c.data.twitter
+  }
   return (
     <html lang="en">
       <HeaderScript />
       <body className='antialiased'>
+        <Navigation domain={c.data.domainName} logo={c.data.logo} />
         {children}
+        <Footer domain={c.data.domainName} socials={socials} />
       </body>
     </html>
   )

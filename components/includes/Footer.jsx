@@ -3,7 +3,7 @@ import { FaFacebookSquare, FaLinkedin, FaTwitterSquare } from 'react-icons/fa';
 
 import { getData } from '@/lib/data';
 
-const Footer = async () => {
+const Footer = async ({ domain, socials }) => {
   const c = await getData();
   const date = new Date();
 
@@ -22,7 +22,7 @@ const Footer = async () => {
         <span>·</span>
         <span>
           <a href="https://www.contrib.com/" rel="noopener" target="_blank">
-            {c.data.domainName.charAt(0).toUpperCase() + c.data.domainName.substring(1)}
+            {domain.charAt(0).toUpperCase() + domain.substring(1)}
           </a>
         </span>
       </div>
@@ -36,17 +36,17 @@ const Footer = async () => {
         <div className="inline-flex items-center flex-col pt-8">
           <ul className="mb-0 space-x-1">
             <li className="inline-block">
-              <a href={c.data.fb} className="inline-block no-underline text-[#3b5998]">
+              <a href={socials.fb} className="inline-block no-underline text-[#3b5998]">
                 <FaFacebookSquare className="w-6 h-6" />
               </a>
             </li>
             <li className="inline-block">
-              <a href={c.data.linkedin} className="inline-block no-underline text-[#0A66C2]">
+              <a href={socials.linkedin} className="inline-block no-underline text-[#0A66C2]">
                 <FaLinkedin className="w-6 h-6" />
               </a>
             </li>
             <li className="inline-block">
-              <a href={c.data.twitter} className="inline-block no-underline text-[#00acee]">
+              <a href={socials.twitter} className="inline-block no-underline text-[#00acee]">
                 <FaTwitterSquare className="w-6 h-6" />
               </a>
             </li>
