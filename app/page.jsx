@@ -2,34 +2,32 @@ import { getDomain, getData } from '@/lib/data';
 import { getBlogs } from '@/lib/blog';
 
 import BlogPosts from '@/components/BlogPostsComponent';
-import Navigation from '@/components/includes/Navigation';
-import Footer from '@/components/includes/Footer';
+import Pagination from '@/components/Pagination';
+import SearchComponent from '@/components/home/SearchComponent';
+import Loading from '@/components/includes/Loading';
 
 const Home = async () => {
   const domain = getDomain();
-  const c = await getData();
   const blogs = await getBlogs(domain);
 
   return (
     <>
-      <Navigation domain={domain} logo={c.data.logo} />
       <div className="container px-8 mx-auto xl:px-5  max-w-screen-lg py-5 lg:py-8">
-        {/* Start:: 2 Columns */}
-        <div className="grid gap-10 md:grid-cols-2 lg:gap-10 ">{/* Insert BlogPosts here to have 2 columns template */}</div>
+        {/* Start:: Search */}
+        <div className="mb-10 ">
+          <SearchComponent />
+        </div>
+        <div className="mb-10 text-center flex flex-col justify-center items-center">
+          <Loading />
+        </div>
         {/* Start:: 3 Columns */}
         <div className="mt-10 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3 ">
           <BlogPosts blogs={blogs} />
         </div>
-        <div className="mt-10 flex justify-center">
-          <a
-            className="relative inline-flex items-center gap-1 rounded-md border border-gray-300 bg-white px-3 py-2 pl-4 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20 disabled:pointer-events-none disabled:opacity-40 dark:border-gray-500 dark:bg-gray-800 dark:text-gray-300"
-            href="#"
-          >
-            <span>View all Posts</span>
-          </a>
+        <div className="mt-10 mx-auto max-w-7xl py-8">
+          <Pagination totalPage={8} />
         </div>
       </div>
-      <Footer />
     </>
   );
 };
