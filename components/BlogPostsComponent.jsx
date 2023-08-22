@@ -1,11 +1,24 @@
 'use client';
 import Image from 'next/image';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
+import Pagination from '@/components/Pagination';
+import SearchComponent from '@/components/SearchComponent';
 import { formatDate } from '@/lib/dateTimeHelper';
 
-const BlogPosts = ({ blogs }) => {
+const BlogPosts = () => {
+  const [blogs, setBlogs] = useState(null);
+  const getBlogs = async () => {
+    const res = await fetch('/api/icontent/get-blogs', {
+      method: 'GET',
+    });
+
+    const result = await res.json();
+
+    setBlogs(result);
+    console.log(result);
+  };
   const createSlug = (title) => {
     return title
       .toString() // Ensure input is a string
@@ -15,10 +28,15 @@ const BlogPosts = ({ blogs }) => {
       .replace(/-+/g, '-') // Replace consecutive hyphens with a single hyphen
       .replace(/^-|-$/g, ''); // Remove hyphens from the beginning or end
   };
-  useEffect(() => {}, [blogs]);
+  useEffect(() => {
+    getBlogs();
+  }, []);
   return (
     <>
-      {blogs.data &&
+      <div className="mb-10 ">
+        <SearchComponent />
+      </div>
+      {blogs &&
         blogs.data.map((blog, index) => (
           <div className="group cursor-pointer" key={index}>
             <div className=" overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105 dark:bg-gray-800">
@@ -71,6 +89,9 @@ const BlogPosts = ({ blogs }) => {
             </div>
           </div>
         ))}
+      <div className="mt-10 mx-auto max-w-7xl py-8">
+        <Pagination totalPage={8} />
+      </div>
     </>
   );
 };
