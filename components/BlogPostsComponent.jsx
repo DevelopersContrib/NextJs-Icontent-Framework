@@ -3,16 +3,19 @@ import Image from 'next/image';
 
 import { useEffect, useState } from 'react';
 
+import Loading from './Loading';
 import Pagination from '@/components/Pagination';
 import SearchComponent from '@/components/SearchComponent';
 import { formatDate } from '@/lib/dateTimeHelper';
 
 const BlogPosts = () => {
   const [blogs, setBlogs] = useState(null);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(6);
+  const [totalPages, setTotaPages] = useState();
   const limit = 9;
 
   const getBlogs = async () => {
+    setBlogs(null);
     const res = await fetch(`/api/icontent/get-blogs?page=${encodeURIComponent(page)}&limit=${encodeURIComponent(limit)}`, {
       method: 'GET',
     });
@@ -22,6 +25,22 @@ const BlogPosts = () => {
     setBlogs(result);
     console.log(result);
   };
+
+  const getTotalBlogs = async () => {
+    const res = await fetch(`/api/icontent/get-count-blogs`, {
+      method: 'GET',
+    });
+
+    const result = await res.json();
+
+    setTotaPages(Math.ceil(result[0].totalNumBlogs / limit));
+  };
+
+  const handleChangePage = (page) => {
+    console.log('im here');
+    setPage(page);
+  };
+
   const createSlug = (title) => {
     return title
       .toString() // Ensure input is a string
@@ -33,7 +52,8 @@ const BlogPosts = () => {
   };
   useEffect(() => {
     getBlogs();
-  }, []);
+    getTotalBlogs();
+  }, [page]);
   return (
     <>
       <div className="mb-10 ">
@@ -92,9 +112,18 @@ const BlogPosts = () => {
             </div>
           </div>
         ))}
-      <div className="mt-10 mx-auto max-w-7xl py-8">
-        <Pagination totalPage={8} />
-      </div>
+
+      {!blogs && (
+        <div className="mb-10 text-center flex flex-col justify-center items-center">
+          <Loading />
+        </div>
+      )}
+
+      {blogs && (
+        <div className="mt-10 mx-auto max-w-7xl py-8">
+          <Pagination totalPages={totalPages} page={page} handleChangePage={handleChangePage} />
+        </div>
+      )}
     </>
   );
 };
