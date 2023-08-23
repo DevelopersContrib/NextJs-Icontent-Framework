@@ -23,7 +23,6 @@ const BlogPosts = () => {
     const result = await res.json();
 
     setBlogs(result);
-    console.log(result);
   };
 
   const getTotalBlogs = async () => {
@@ -37,7 +36,6 @@ const BlogPosts = () => {
   };
 
   const handleChangePage = (page) => {
-    console.log('im here');
     setPage(page);
   };
 

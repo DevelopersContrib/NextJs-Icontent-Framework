@@ -6,7 +6,6 @@ export const GET = async (request) => {
     const page = urlParams.searchParams.get('page');
     const limit = urlParams.searchParams.get('limit');
 
-    // console.log('REQUEST:', request.url.searchParams);
     const url = process.env.CONTRIB_API1 + 'icontent/getblogs?key=' + process.env.CONTRIB_API_KEY + '&domain=' + process.env.NEXT_PUBLIC_VERCEL_URL + '&page=' + page + '&limit=' + limit;
     const res = await axios.get(url);
 
