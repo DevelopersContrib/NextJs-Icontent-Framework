@@ -2,10 +2,13 @@ import axios from 'axios';
 
 export const GET = async (request) => {
   try {
-    const data = request.query;
+    // const data = await request.json();
+    const urlParams = new URL(request.url);
+    const page = urlParams.searchParams.get('page');
+    const limit = urlParams.searchParams.get('limit');
 
-    console.log(data);
-    const url = process.env.CONTRIB_API1 + 'icontent/Getcontents?key=' + process.env.CONTRIB_API_KEY + '&domain=' + process.env.NEXT_PUBLIC_VERCEL_URL;
+    // console.log('REQUEST:', request.url.searchParams);
+    const url = process.env.CONTRIB_API1 + 'icontent/Getcontents?key=' + process.env.CONTRIB_API_KEY + '&domain=' + process.env.NEXT_PUBLIC_VERCEL_URL + '&page=' + page + '&limit=' + limit;
     console.log(url);
     const res = await axios.get(url);
 

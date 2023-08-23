@@ -13,7 +13,7 @@ const BlogPosts = () => {
   const limit = 9;
 
   const getBlogs = async () => {
-    const res = await fetch(`/api/icontent/get-blogs?page=${page}&limit=${limit}`, {
+    const res = await fetch(`/api/icontent/get-blogs?page=${encodeURIComponent(page)}&limit=${encodeURIComponent(limit)}`, {
       method: 'GET',
     });
 
