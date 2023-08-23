@@ -9,8 +9,11 @@ import { formatDate } from '@/lib/dateTimeHelper';
 
 const BlogPosts = () => {
   const [blogs, setBlogs] = useState(null);
+  const [page, setPage] = useState(1);
+  const limit = 9;
+
   const getBlogs = async () => {
-    const res = await fetch('/api/icontent/get-blogs', {
+    const res = await fetch(`/api/icontent/get-blogs?page=${page}&limit=${limit}`, {
       method: 'GET',
     });
 
