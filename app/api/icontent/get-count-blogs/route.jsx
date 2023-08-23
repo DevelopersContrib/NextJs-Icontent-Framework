@@ -7,8 +7,6 @@ export const GET = async (request) => {
 
     const result = res.data;
 
-    console.log('RESULT:', result);
-
     return new Response(JSON.stringify(result.data), { status: 201 });
   } catch (error) {
     console.log('im here');
