@@ -2,11 +2,12 @@
 import Image from 'next/image';
 
 import { useEffect, useState } from 'react';
-
+import Loading from './Loading';
 import { formatDate } from '@/lib/dateTimeHelper';
 
 const Blog = ({ slug }) => {
   const [blogContent, setBlogContent] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const getBlogContent = async () => {
     const res = await fetch('/api/icontent/get-content?slug=' + encodeURIComponent(slug), {
@@ -15,6 +16,7 @@ const Blog = ({ slug }) => {
 
     const result = await res.json();
     setBlogContent(result);
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -22,6 +24,7 @@ const Blog = ({ slug }) => {
   }, [slug]);
   return (
     <>
+      {isLoading && <Loading />}
       {blogContent.length > 0 &&
         blogContent.map((content, index) => (
           <div key={index}>

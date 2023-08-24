@@ -1,10 +1,12 @@
 import axios from 'axios';
+import { getDomain } from '@/lib/data';
 
 export const GET = async (request) => {
   try {
-    const urlParams = new URL(request.url);
-    const search = urlParams.searchParams.get('search');
-    const url = `${process.env.CONTRIB_API1}icontent/getblogscount?key=${process.env.CONTRIB_API_KEY}&domain=${process.env.NEXT_PUBLIC_VERCEL_URL}&search=${search}`;
+    const domain = getDomain();
+    const { searchParams } = new URL(request.url);
+    const search = searchParams.get('search');
+    const url = `${process.env.CONTRIB_API1}icontent/getblogscount?key=${process.env.CONTRIB_API_KEY}&domain=${domain}&search=${search}`;
     const res = await axios.get(url);
 
     const result = res.data;
