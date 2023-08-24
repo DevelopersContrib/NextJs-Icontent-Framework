@@ -4,29 +4,34 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 import Loading from './Loading';
+import NoResultsFound from './NoResultsFoundComponent';
 import Pagination from '@/components/Pagination';
 import SearchComponent from '@/components/SearchComponent';
 import { formatDate } from '@/lib/dateTimeHelper';
 
 const BlogPosts = () => {
-  const [blogs, setBlogs] = useState(null);
+  const [blogs, setBlogs] = useState([]);
+  const [searchKey, setSearchKey] = useState('');
   const [page, setPage] = useState(6);
   const [totalPages, setTotaPages] = useState();
+  const [isLoading, setIsLoading] = useState(true);
   const limit = 9;
 
   const getBlogs = async () => {
-    setBlogs(null);
-    const res = await fetch(`/api/icontent/get-blogs?page=${encodeURIComponent(page)}&limit=${encodeURIComponent(limit)}`, {
+    setBlogs([]);
+    setIsLoading(true);
+    const res = await fetch(`/api/icontent/get-blogs?page=${encodeURIComponent(page)}&limit=${encodeURIComponent(limit)}&search=${encodeURIComponent(searchKey)}`, {
       method: 'GET',
     });
 
     const result = await res.json();
 
     setBlogs(result);
+    setIsLoading(false);
   };
 
   const getTotalBlogs = async () => {
-    const res = await fetch(`/api/icontent/get-count-blogs`, {
+    const res = await fetch(`/api/icontent/get-count-blogs?search=${encodeURIComponent(searchKey)}`, {
       method: 'GET',
     });
 
@@ -51,15 +56,18 @@ const BlogPosts = () => {
   useEffect(() => {
     getBlogs();
     getTotalBlogs();
-  }, [page]);
+
+    console.log(blogs);
+  }, [page, searchKey]);
   return (
     <>
       <div className="mb-10 ">
-        <SearchComponent />
+        <SearchComponent setSearchKey={setSearchKey} />
       </div>
       <div className="mt-10 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3 ">
+        {isLoading && <Loading />}
         {blogs &&
-          blogs.data.map((blog, index) => (
+          blogs.map((blog, index) => (
             <div className="group cursor-pointer" key={index}>
               <div className=" overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105 dark:bg-gray-800">
                 <a href={`/blog/${createSlug(blog.blog_title)}`} className="relative block aspect-video">
@@ -111,10 +119,9 @@ const BlogPosts = () => {
               </div>
             </div>
           ))}
+        {blogs.length === 0 && !isLoading ? <NoResultsFound /> : ''}
       </div>
-      <div className="mt-10 mx-auto max-w-7xl py-8">
-        <Pagination totalPage={8} />
-      </div>
+      <div className="mt-10 mx-auto max-w-7xl py-8">{totalPages > 1 && <Pagination totalPages={totalPages} page={page} handleChangePage={handleChangePage} />}</div>
     </>
   );
 };

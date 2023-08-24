@@ -2,7 +2,9 @@ import axios from 'axios';
 
 export const GET = async (request) => {
   try {
-    const url = `${process.env.CONTRIB_API1}icontent/getblogscount?key=${process.env.CONTRIB_API_KEY}&domain=${process.env.NEXT_PUBLIC_VERCEL_URL}`;
+    const urlParams = new URL(request.url);
+    const search = urlParams.searchParams.get('search');
+    const url = `${process.env.CONTRIB_API1}icontent/getblogscount?key=${process.env.CONTRIB_API_KEY}&domain=${process.env.NEXT_PUBLIC_VERCEL_URL}&search=${search}`;
     const res = await axios.get(url);
 
     const result = res.data;

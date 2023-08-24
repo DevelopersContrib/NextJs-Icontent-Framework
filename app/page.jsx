@@ -14,7 +14,6 @@ const Home = async () => {
     <>
       <div className="container px-8 mx-auto xl:px-5  max-w-screen-lg py-5 lg:py-8">
         {/* Start:: 3 Columns */}
-        
         <BlogPosts />
       </div>
     </>
