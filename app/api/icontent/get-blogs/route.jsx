@@ -1,10 +1,13 @@
 import axios from 'axios';
+import { NextResponse } from 'next/server'
 
-export const GET = async (request, { params }) => {
+export async function GET(request, Request) {
+  const { searchParams } = new URL(request.url)
+  
   try {
-      const limit = params.limit;
-      const page = params.page;
-      const search = params.search;
+      const limit = searchParams.get('limit')
+      const page = searchParams.get('page')
+      const search = searchParams.get('search')
       const url = process.env.CONTRIB_API1 + 'icontent/getblogs?key=' + process.env.CONTRIB_API_KEY + '&domain=' + process.env.NEXT_PUBLIC_VERCEL_URL + '&page=' + page + '&limit=' + limit + '&search=' + search;
       const res = await axios.get(url);
       const result = res.data;
