@@ -12,7 +12,7 @@ import { formatDate } from '@/lib/dateTimeHelper';
 const BlogPosts = () => {
   const [blogs, setBlogs] = useState([]);
   const [searchKey, setSearchKey] = useState('');
-  const [page, setPage] = useState(6);
+  const [page, setPage] = useState(1);
   const [totalPages, setTotaPages] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const limit = 9;
