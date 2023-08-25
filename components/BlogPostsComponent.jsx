@@ -44,24 +44,15 @@ const BlogPosts = () => {
     setPage(page);
   };
 
-  const createSlug = (title) => {
-    return title
-      .toString() // Ensure input is a string
-      .toLowerCase() // Convert to lowercase
-      .trim() // Remove leading and trailing spaces
-      .replace(/[^a-z0-9-]/g, '-') // Replace non-alphanumeric characters with hyphens
-      .replace(/-+/g, '-') // Replace consecutive hyphens with a single hyphen
-      .replace(/^-|-$/g, ''); // Remove hyphens from the beginning or end
-  };
   useEffect(() => {
     getBlogs();
     getTotalBlogs();
-
-    console.log(blogs);
   }, [page, searchKey]);
   return (
     <>
-      {isLoading ? (<Loading />) : (
+      {isLoading ? (
+        <Loading />
+      ) : (
         <>
           <div className="mb-10 ">
             <SearchComponent setSearchKey={setSearchKey} />
@@ -84,7 +75,7 @@ const BlogPosts = () => {
                         </a>
                       </div>
                       <h2 className="text-lg font-semibold leading-snug tracking-tight mt-2 dark:text-white">
-                      <a href={`/blog/${blog.slug}`}>
+                        <a href={`/blog/${blog.slug}`}>
                           <span className="bg-gradient-to-r from-green-200 to-green-100 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px] dark:from-purple-800 dark:to-purple-900">
                             {blog.blog_content.substring(0, 100)}
                           </span>
@@ -92,7 +83,7 @@ const BlogPosts = () => {
                       </h2>
                       <div className="hidden">
                         <p className="mt-2 line-clamp-3 text-sm text-gray-500 dark:text-gray-400">
-                        <a href={`/blog/${blog.slug}`}>
+                          <a href={`/blog/${blog.slug}`}>
                             Reinvention often comes in spurts, after a long period of silence. Just as modern architecture recently enjoyed a comeback, brand architecture, a field with well-established principles for decades
                           </a>
                         </p>
@@ -125,7 +116,6 @@ const BlogPosts = () => {
           <div className="mt-10 mx-auto max-w-7xl py-8">{totalPages > 1 && <Pagination totalPages={totalPages} page={page} handleChangePage={handleChangePage} />}</div>
         </>
       )}
-
     </>
   );
 };
