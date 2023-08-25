@@ -66,6 +66,7 @@ const BlogPosts = () => {
           <div className="mb-10 ">
             <SearchComponent setSearchKey={setSearchKey} />
           </div>
+          {blogs.length === 0 && !isLoading ? <NoResultsFound /> : ''}
           <div className="mt-10 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3 ">
             {blogs &&
               blogs.map((blog, index) => (
@@ -120,7 +121,6 @@ const BlogPosts = () => {
                   </div>
                 </div>
               ))}
-            {blogs.length === 0 && !isLoading ? <NoResultsFound /> : ''}
           </div>
           <div className="mt-10 mx-auto max-w-7xl py-8">{totalPages > 1 && <Pagination totalPages={totalPages} page={page} handleChangePage={handleChangePage} />}</div>
         </>
