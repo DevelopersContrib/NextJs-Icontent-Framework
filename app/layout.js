@@ -2,8 +2,7 @@ import './globals.scss'
 import HeaderScript from '@/components/includes/HeaderScript'
 import { getData, getDomain } from '@/lib/data'
 
-import Navigation from '@/components/includes/Navigation';
-import Footer from '@/components/includes/Footer';
+
 
 export async function generateMetadata() {
   const c = await getData();
@@ -27,9 +26,9 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <HeaderScript />
       <body className='antialiased'>
-        <Navigation domain={c.data.domainName} logo={c.data.logo} />
+        
         {children}
-        <Footer domain={c.data.domainName} socials={socials} />
+        
       </body>
     </html>
   )

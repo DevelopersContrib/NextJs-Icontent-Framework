@@ -18,7 +18,8 @@ const Navigation = ({ domain, logo }) => {
               <div className="hidden sm:flex sm:space-x-8">
                 <div className="hidden sm:flex sm:space-x-8">
                   {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
-                  <a href="/" className="nav-link active">
+                  {/* Note:: Add class "active" for current page */}
+                  <a href="/" className="nav-link">
                     Home
                   </a>
                   <a href="/about" className="nav-link">
@@ -61,8 +62,9 @@ const Navigation = ({ domain, logo }) => {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 pb-3 pt-2">
-              {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
-              <Disclosure.Button as="a" href="#" className="nav-link-sm active">
+              {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */} 
+              {/* Note:: Add class "active" for current page */}
+              <Disclosure.Button as="a" href="#" className="nav-link-sm ">
                 Home
               </Disclosure.Button>
               <Disclosure.Button as="a" href="#" className="nav-link-sm">

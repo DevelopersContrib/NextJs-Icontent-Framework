@@ -35,21 +35,21 @@ const Footer = async ({ domain, socials }) => {
         </div>
         <div className="inline-flex items-center flex-col pt-8">
           <ul className="mb-0 space-x-1">
-            <li className="inline-block">
+            {socials.fb ? (<li className="inline-block">
               <a href={socials.fb} className="inline-block no-underline text-[#3b5998]">
                 <FaFacebookSquare className="w-6 h-6" />
               </a>
-            </li>
-            <li className="inline-block">
+            </li>) : ""}
+            {socials.linkedin ? (<li className="inline-block">
               <a href={socials.linkedin} className="inline-block no-underline text-[#0A66C2]">
                 <FaLinkedin className="w-6 h-6" />
               </a>
-            </li>
-            <li className="inline-block">
+            </li>) : ""}
+            {socials.twitter ? (<li className="inline-block">
               <a href={socials.twitter} className="inline-block no-underline text-[#00acee]">
                 <FaTwitterSquare className="w-6 h-6" />
               </a>
-            </li>
+            </li>) : ""}
           </ul>
           <span className="text-sm text-gray-500">Follow Us</span>
         </div>

@@ -28,7 +28,7 @@ const Blog = ({ slug }) => {
       {blogContent.length > 0 &&
         blogContent.map((content, index) => (
           <div key={index}>
-            <div className="container px-8 mx-auto xl:px-5  max-w-screen-lg py-5 lg:py-8 !pt-0">
+            <div className="container px-8 mx-auto xl:px-5  max-w-screen-lg py-5 lg:py-8 !pt-10">
               <div className="mx-auto max-w-screen-md ">
                 <h1 className="text-brand-primary mb-3 mt-2 text-center text-3xl font-semibold tracking-tight dark:text-white lg:text-4xl lg:leading-snug">{content.blog_title}</h1>
                 <div className="mt-3 flex justify-center space-x-3 text-gray-500 ">
@@ -61,7 +61,7 @@ const Blog = ({ slug }) => {
               />
             </div>
             <div className="container px-8 mx-auto xl:px-5  max-w-screen-lg py-5 lg:py-8">
-              <div className="mx-auto max-w-screen-md ">
+              <div className="mx-auto ">
                 <div className="mx-auto my-3">{content.blog_content}</div>
               </div>
             </div>

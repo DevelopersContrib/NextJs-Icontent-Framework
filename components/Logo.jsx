@@ -5,6 +5,6 @@ export default function Logo({ domain, logo }) {
   if (logo != null && logo != '') {
     return <Image src={logo} width={120} height={120} alt="" className="d-inline-flex img-fluid mb-3 tw-pr-3" />;
   } else {
-    return <>{domain.charAt(0).toUpperCase() + domain.substring(1)}</>;
+    return <><span className='uppercase text-lg'>{domain.charAt(0).toUpperCase() + domain.substring(1)}</span></>;
   }
 }
