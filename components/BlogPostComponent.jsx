@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import ReactMarkdown from 'react-markdown';
 
 import { useEffect, useState } from 'react';
 import Loading from './Loading';
@@ -17,6 +18,10 @@ const Blog = ({ slug }) => {
     const result = await res.json();
     setBlogContent(result);
     setIsLoading(false);
+  };
+
+  const renderTextAsHtml = (markdownString) => {
+    return <ReactMarkdown>{markdownString}</ReactMarkdown>;
   };
 
   useEffect(() => {
@@ -62,7 +67,7 @@ const Blog = ({ slug }) => {
             </div>
             <div className="container px-8 mx-auto xl:px-5  max-w-screen-lg py-5 lg:py-8">
               <div className="mx-auto ">
-                <div className="mx-auto my-3">{content.blog_content}</div>
+                <div className="mx-auto my-3">{renderTextAsHtml(content.blog_content)}</div>
               </div>
             </div>
           </div>

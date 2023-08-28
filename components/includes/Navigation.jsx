@@ -6,8 +6,7 @@ import { useId } from 'react';
 import Logo from '@/components/Logo';
 
 const Navigation = ({ domain, logo }) => {
-  
-  let id = useId()
+  let id = useId();
 
   return (
     <Disclosure data-id={id} as="nav" className="bg-white shadow">
@@ -62,32 +61,32 @@ const Navigation = ({ domain, logo }) => {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 pb-3 pt-2">
-              {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */} 
+              {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
               {/* Note:: Add class "active" for current page */}
-              <Disclosure.Button as="a" href="#" className="nav-link-sm ">
+              <Disclosure.Button as="a" href="/" className="nav-link-sm ">
                 Home
               </Disclosure.Button>
-              <Disclosure.Button as="a" href="#" className="nav-link-sm">
-                Link
+              <Disclosure.Button as="a" href="/about" className="nav-link-sm">
+                About us
               </Disclosure.Button>
-              <Disclosure.Button as="a" href="#" className="nav-link-sm">
-                Link
+              <Disclosure.Button as="a" href="/apps" className="nav-link-sm">
+                Apps
               </Disclosure.Button>
-              <Disclosure.Button as="a" href="#" className="nav-link-sm">
-                Link
+              <Disclosure.Button as="a" href="/contact" className="nav-link-sm">
+                Contact us
               </Disclosure.Button>
             </div>
             <div className="border-t border-gray-200 pb-3 pt-4">
               <div className="space-y-1 pb-3 pt-2">
                 {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
-                <Disclosure.Button as="a" href="#" className="nav-link-sm">
-                  Link
+                <Disclosure.Button as="a" href="/staffing" className="nav-link-sm">
+                  Apply
                 </Disclosure.Button>
-                <Disclosure.Button as="a" href="#" className="nav-link-sm">
-                  Link
+                <Disclosure.Button as="a" href="/referral" className="nav-link-sm">
+                  Refer
                 </Disclosure.Button>
-                <Disclosure.Button as="a" href="#" className="nav-link-sm">
-                  Link
+                <Disclosure.Button as="a" href="/partner" className="nav-link-sm">
+                  Partner
                 </Disclosure.Button>
               </div>
             </div>
