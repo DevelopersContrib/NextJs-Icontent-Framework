@@ -65,7 +65,7 @@ const Blog = ({ slug }) => {
               />
             </div>
             <div className="container px-8 mx-auto xl:px-5  max-w-screen-lg py-5 lg:py-8">
-              <div className="mx-auto ">
+              <div className="mx-auto max-w-screen-md ">
                 <div className="mx-auto my-3 renderHtml">{renderTextAsHtml(content.blog_content)}</div>
               </div>
             </div>
