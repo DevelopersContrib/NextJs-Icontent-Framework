@@ -30,6 +30,9 @@ const Navigation = ({ domain, logo }) => {
                   <a href="/contact" className="nav-link">
                     Contact us
                   </a>
+                  <a href="/developer" className="nav-link">
+                    Developer
+                  </a>
                 </div>
               </div>
               <div className="flex w-full items-center md:w-auto">
@@ -46,6 +49,9 @@ const Navigation = ({ domain, logo }) => {
                 </a>
                 <a href="/partner" className="nav-link">
                   Partner
+                </a>
+                <a href="/invest" className="nav-link">
+                  Invest
                 </a>
               </div>
               <div className="-mr-2 flex items-center sm:hidden">
@@ -75,6 +81,9 @@ const Navigation = ({ domain, logo }) => {
               <Disclosure.Button as="a" href="/contact" className="nav-link-sm">
                 Contact us
               </Disclosure.Button>
+              <Disclosure.Button as="a" href="/developer" className="nav-link-sm">
+                Developer
+              </Disclosure.Button>
             </div>
             <div className="border-t border-gray-200 pb-3 pt-4">
               <div className="space-y-1 pb-3 pt-2">
@@ -87,6 +96,9 @@ const Navigation = ({ domain, logo }) => {
                 </Disclosure.Button>
                 <Disclosure.Button as="a" href="/partner" className="nav-link-sm">
                   Partner
+                </Disclosure.Button>
+                <Disclosure.Button as="a" href="/invest" className="nav-link-sm">
+                  Invest
                 </Disclosure.Button>
               </div>
             </div>
