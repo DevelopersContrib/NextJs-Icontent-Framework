@@ -9,7 +9,7 @@ const Navigation = ({ domain, logo }) => {
   let id = useId();
 
   return (
-    <Disclosure data-id={id} as="nav" className="bg-white shadow">
+    <Disclosure data-id={id} as="nav" className="bg-white ">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-screen-lg px-4 sm:px-6 lg:px-8">
@@ -33,7 +33,7 @@ const Navigation = ({ domain, logo }) => {
                 </div>
               </div>
               <div className="flex w-full items-center md:w-auto">
-                <a href="/" className="inline-flex items-center font-semibold">
+                <a href="/" className="inline-flex items-center font-semibold ">
                   <Logo domain={domain} logo={logo} />
                 </a>
               </div>

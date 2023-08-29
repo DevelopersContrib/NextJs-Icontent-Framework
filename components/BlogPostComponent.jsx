@@ -35,12 +35,12 @@ const Blog = ({ slug }) => {
           <div key={index}>
             <div className="container px-8 mx-auto xl:px-5  max-w-screen-lg py-5 lg:py-8 !pt-10">
               <div className="mx-auto max-w-screen-md ">
-                <h1 className="text-brand-primary mb-3 mt-2 text-center text-3xl font-semibold tracking-tight dark:text-white lg:text-4xl lg:leading-snug">{content.blog_title}</h1>
+                <h1 className="text-brand-primary mb-3 mt-2 text-center text-3xl font-semibold tracking-tight lg:text-4xl lg:leading-snug">{content.blog_title}</h1>
                 <div className="mt-3 flex justify-center space-x-3 text-gray-500 ">
                   <div className="flex items-center gap-3">
                     <div>
                       <div className="flex items-center space-x-2 text-sm">
-                        <time className="text-gray-500 dark:text-gray-400">{formatDate(content.date_created)}</time>
+                        <time className="text-gray-500 ">{formatDate(content.date_created)}</time>
                       </div>
                     </div>
                   </div>
