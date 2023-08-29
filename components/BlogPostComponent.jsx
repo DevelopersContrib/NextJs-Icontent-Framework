@@ -1,6 +1,5 @@
 'use client';
 import Image from 'next/image';
-import ReactMarkdown from 'react-markdown';
 
 import { useEffect, useState } from 'react';
 import Loading from './Loading';
@@ -20,8 +19,8 @@ const Blog = ({ slug }) => {
     setIsLoading(false);
   };
 
-  const renderTextAsHtml = (markdownString) => {
-    return <ReactMarkdown>{markdownString}</ReactMarkdown>;
+  const renderTextAsHtml = (htmlContent) => {
+    return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
   };
 
   useEffect(() => {
