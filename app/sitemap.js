@@ -1,63 +1,64 @@
 import { getDynamicSitemapUrl } from '@/lib/blog';
-import { getUrl } from '@/lib/data';
+import { getDomainReferrer } from '@/lib/data';
 
 export default async function sitemap() {
   const res = await getDynamicSitemapUrl();
-  const domainReferrer = getUrl();
+  const domainReferrer = getDomainReferrer();
+
   const sitemapUrls = [
     {
-      url: domainReferrer,
+      url: 'https://' + domainReferrer,
       lastModified: new Date(),
     },
     {
-      url: domainReferrer + '/about',
+      url: 'https://' + domainReferrer + '/about',
       lastModified: new Date(),
     },
     {
-      url: domainReferrer + '/apps',
+      url: 'https://' + domainReferrer + '/apps',
       lastModified: new Date(),
     },
     {
-      url: domainReferrer + '/contact',
+      url: 'https://' + domainReferrer + '/contact',
       lastModified: new Date(),
     },
     {
-      url: domainReferrer + '/staffing',
+      url: 'https://' + domainReferrer + '/staffing',
       lastModified: new Date(),
     },
     {
-      url: domainReferrer + '/referral',
+      url: 'https://' + domainReferrer + '/referral',
       lastModified: new Date(),
     },
     {
-      url: domainReferrer + '/partner',
+      url: 'https://' + domainReferrer + '/partner',
       lastModified: new Date(),
     },
     {
-      url: domainReferrer + '/invest',
+      url: 'https://' + domainReferrer + '/invest',
       lastModified: new Date(),
     },
     {
-      url: domainReferrer + '/developer',
+      url: 'https://' + domainReferrer + '/developer',
       lastModified: new Date(),
     },
     {
-      url: domainReferrer + '/terms',
+      url: 'https://' + domainReferrer + '/terms',
       lastModified: new Date(),
     },
     {
-      url: domainReferrer + '/privacy',
+      url: 'https://' + domainReferrer + '/privacy',
       lastModified: new Date(),
     },
     {
-      url: domainReferrer + '/cookie',
+      url: 'https://' + domainReferrer + '/cookie',
       lastModified: new Date(),
     },
   ];
 
   if (res.data.length > 0) {
     res.data.map((blog) => {
-      sitemapUrls.push({ url: domainReferrer + '/blog/' + blog.slug, lastModified: blog.dateMod });
+      sitemapUrls.push({ url: 'https://' + domainReferrer + '/blog/' + blog.slug, lastModified: blog.dateMod });
     });
   }
 

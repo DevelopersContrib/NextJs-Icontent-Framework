@@ -9,7 +9,7 @@ export function getDomain() {
   return domainName;
 }
 
-export function getUrl() {
+export function getDomainReferrer() {
   const headersList = headers();
   const referrer = headersList.get('host');
   return referrer;
