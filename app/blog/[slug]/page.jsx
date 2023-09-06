@@ -1,4 +1,3 @@
-import { Metadata, ResolvingMetadata } from 'next';
 import Blog from '@/components/BlogPostComponent';
 import Navigation from '@/components/includes/Navigation';
 import Footer from '@/components/includes/Footer';

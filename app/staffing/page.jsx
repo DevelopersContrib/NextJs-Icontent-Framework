@@ -1,5 +1,16 @@
 import Script from "next/script";
-import { getDomain } from "@/lib/data";
+import { getDomain} from "@/lib/data";
+
+// set dynamic metadata
+export async function generateMetadata(){
+  
+  const domain = getDomain();
+   
+  return {
+    title: 'Staffing - '+domain
+  };
+}
+
 const Page = () => {
   const domain = getDomain();
   return (

@@ -1,4 +1,16 @@
 import Image from "next/image"
+import { getDomain} from "@/lib/data";
+
+// set dynamic metadata
+export async function generateMetadata(){
+  
+  const domain = getDomain();
+   
+  return {
+    title: 'Archive - '+domain
+   
+  };
+}
 
 const page = () => {
   return (

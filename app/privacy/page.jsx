@@ -1,5 +1,15 @@
 import Script from 'next/script';
 import { getDomain } from '@/lib/data';
+// set dynamic metadata
+export async function generateMetadata(){
+  
+  const domain = getDomain();
+   
+  return {
+    title: 'Privacy Policy - '+domain
+   
+  };
+}
 const Page = () => {
   const domain = getDomain();
   return (
