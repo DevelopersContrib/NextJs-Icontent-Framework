@@ -12,6 +12,7 @@ const Footer = async ({ domain, socials }) => {
       <div className="text-center text-sm">
         Copyright &copy; {date.getFullYear()} <span className="">iContent Framework</span>. All rights reserved.
       </div>
+     
       <div className="mt-1 flex justify-center gap-1 text-center text-sm text-gray-500 dark:text-gray-600">
         <span>
           Made by{' '}
@@ -23,6 +24,31 @@ const Footer = async ({ domain, socials }) => {
         <span>
           <a href="https://www.contrib.com/" rel="noopener" target="_blank">
             {domain.charAt(0).toUpperCase() + domain.substring(1)}
+          </a>
+        </span>
+      </div>
+      <div className="mt-1 flex justify-center gap-1 text-center text-sm text-gray-500 dark:text-gray-600">
+        <span>
+          <a href={`https://domaindirectory.com/servicepage/?domain=${domain}`} rel="noopener" target="_blank">
+            Build
+          </a>
+        </span>
+        <span>·</span>
+        <span>
+          <a href={`https://domaindirectory.com/servicepage/?domain=${domain}`} rel="noopener" target="_blank">
+            Invest
+          </a>
+        </span>
+        <span>·</span>
+        <span>
+          <a href={`https://domaindirectory.com/servicepage/?domain=${domain}`} rel="noopener" target="_blank">
+            Manage
+          </a>
+        </span>
+        <span>·</span>
+        <span>
+          <a href={`https://domaindirectory.com/servicepage/?domain=${domain}`} rel="noopener" target="_blank">
+            Monetize 
           </a>
         </span>
       </div>
