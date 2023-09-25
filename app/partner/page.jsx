@@ -1,5 +1,15 @@
 import Script from "next/script";
-import { getDomain } from "@/lib/data";
+import { getDomain} from "@/lib/data";
+
+// set dynamic metadata
+export async function generateMetadata(){
+  
+  const domain = getDomain();
+   
+  return {
+    title: 'Partner with '+domain.toUpperCase()
+  };
+}
 const Page = () => {
   const domain = getDomain();
   return (

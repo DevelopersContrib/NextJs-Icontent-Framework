@@ -1,5 +1,5 @@
-import Script from "next/script";
-import { getDomain} from "@/lib/data";
+import Script from 'next/script';
+import { getDomain } from '@/lib/data';
 
 // set dynamic metadata
 export async function generateMetadata(){
@@ -7,21 +7,15 @@ export async function generateMetadata(){
   const domain = getDomain();
    
   return {
-    title: 'Staffing - '+domain
+    title: 'Terms of Use - '+domain
+   
   };
 }
-
 const Page = () => {
   const domain = getDomain();
   return (
     <>
-      <Script
-        src={
-          "https://tools.contrib.com/pages/staffing?d=" +
-          domain +
-          "&container=staffing-script"
-        }
-      />
+      <Script src={'https://tools.contrib.com/pages/terms?d=' + domain + '&container=staffing-script'} />
       <div className="staffing-script"></div>
     </>
   );

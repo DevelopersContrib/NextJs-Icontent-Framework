@@ -1,6 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.font-qwitcher{
+  font-family: 'Qwitcher Grypen';
+}
 
 /* Note: Two Parts for Navigation Link - Large Devices and Small Devices */
 /* Navigation Link : Large Screen Devices -------------------- */
@@ -65,5 +70,21 @@ p{
   to {
     -webkit-transform: rotate(1turn);
     transform: rotate(1turn);
+  }
+}
+
+
+/* Solo Page Article ---------------------------------- */
+.renderHtml{
+  @apply text-[#374151];
+  
+  h1{
+    @apply text-4xl font-medium mb-4;
+  }
+  h2{
+    @apply text-2xl font-medium mb-4;
+  }
+  p{
+    @apply mb-8;
   }
 }
