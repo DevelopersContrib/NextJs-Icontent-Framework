@@ -6,7 +6,7 @@ export async function getDynamicSitemapUrl(url) {
     const domain = getDomain();
     const url = process.env.CONTRIB_API1 + 'icontent/getdynamicsitemapurls?key=' + process.env.CONTRIB_API_KEY + '&domain=' + domain;
 
-    const res = await axios.get(url);
+    const res = await fetch(url, { next: { revalidate: 3600 } });
 
     return res.data;
   } catch (error) {
