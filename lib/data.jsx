@@ -18,7 +18,7 @@ export function getDomainReferrer() {
 export async function getData() {
   const domain = getDomain();
   const url = process.env.CONTRIB_API1 + `domains/getdomainconfig?domain=${domain}&key=${process.env.CONTRIB_API_KEY}`;
-  const res = await fetch(url, { next: { revalidate: 3600 } });
+  const res = await axios.get(url);
 
   return res.data;
 }
@@ -26,7 +26,7 @@ export async function getData() {
 export async function getTopsites() {
   const domain = getDomain();
   const url = process.env.CONTRIB_API1 + `domains/getTopsites?domain=${domain}&key=${process.env.CONTRIB_API_KEY}`;
-  const res = await fetch(url, { next: { revalidate: 3600 } });
+  const res = await axios.get(url);
 
   return res.data;
 }

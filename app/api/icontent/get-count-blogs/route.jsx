@@ -7,7 +7,7 @@ export const GET = async (request) => {
     const { searchParams } = new URL(request.url);
     const search = searchParams.get('search');
     const url = `${process.env.CONTRIB_API1}icontent/getblogscount?key=${process.env.CONTRIB_API_KEY}&domain=${domain}&search=${search}`;
-    const res = await fetch(url, { next: { revalidate: 3600 } });
+    const res = await axios.get(url);
 
     const result = res.data;
 
