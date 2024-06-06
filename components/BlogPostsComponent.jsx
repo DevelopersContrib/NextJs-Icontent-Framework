@@ -13,32 +13,82 @@ const BlogPosts = () => {
   const [blogs, setBlogs] = useState([]);
   const [searchKey, setSearchKey] = useState('');
   const [page, setPage] = useState(1);
-  const [totalPages, setTotaPages] = useState();
+  const [totalPages, setTotalPages] = useState(0); // Initialize totalPages with 0
   const [isLoading, setIsLoading] = useState(true);
   const limit = 9;
+  
 
   const getBlogs = async () => {
-    setBlogs([]);
-    setIsLoading(true);
-    const res = await fetch(`/api/icontent/get-blogs?page=${encodeURIComponent(page)}&limit=${encodeURIComponent(limit)}&search=${encodeURIComponent(searchKey)}`, {
-      method: 'GET',
-    });
-
-    const result = await res.json();
-
-    setBlogs(result);
-    setIsLoading(false);
+    try {
+      const res = await fetch(`/api/icontent/get-blogs?page=${encodeURIComponent(page)}&limit=${encodeURIComponent(limit)}&search=${encodeURIComponent(searchKey)}`, {
+        method: 'GET',
+      });
+  
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+  
+      const contentType = res.headers.get('content-type');
+      console.log('Response content type:', contentType); // Log the content type
+  
+      if (!contentType || !contentType.includes('application/json')) {
+        const textResult = await res.text();
+        console.warn('Response not JSON, received text:', textResult); // Log non-JSON response
+        throw new TypeError('Response not JSON');
+      }
+  
+      const result = await res.json();
+      console.log('Fetched blogs:', result); // Log the fetched blogs
+      setBlogs(result);
+    } catch (error) {
+      console.error('Error fetching blogs:', error);
+      // Handle the error appropriately, e.g., show an error message to the user
+    } finally {
+      setIsLoading(false);
+    }
   };
-
+  
+  
+  
+  
   const getTotalBlogs = async () => {
-    const res = await fetch(`/api/icontent/get-count-blogs?search=${encodeURIComponent(searchKey)}`, {
-      method: 'GET',
-    });
-
-    const result = await res.json();
-
-    setTotaPages(Math.ceil(result[0].totalNumBlogs / limit));
+    try {
+      const res = await fetch(`/api/icontent/get-count-blogs?search=${encodeURIComponent(searchKey)}`, {
+        method: 'GET',
+      });
+  
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+  
+      const contentType = res.headers.get('content-type');
+      console.log('Response content type:', contentType); // Log the content type
+  
+      if (!contentType || !contentType.includes('application/json')) {
+        const textResult = await res.text();
+        console.error('Response not JSON, received text:', textResult); // Log non-JSON response
+        throw new TypeError('Response not JSON');
+      }
+  
+      const result = await res.json();
+      console.log('Fetched total blogs count:', result); // Log the fetched total blogs count
+  
+      // Update your state or do something with the fetched data
+    } catch (error) {
+      console.error('Error fetching total blogs:', error);
+      // Handle the error appropriately, e.g., show an error message to the user
+    }
   };
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
   const handleChangePage = (page) => {
     setPage(page);
