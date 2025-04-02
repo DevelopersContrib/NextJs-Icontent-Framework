@@ -12,7 +12,7 @@ const Navigation = ({ domain, logo }) => {
     <Disclosure data-id={id} as="nav" className="bg-white ">
       {({ open }) => (
         <>
-          <div className="flash-news bg-yellow-100 text-sm text-black py-2">
+          <div className="flash-news bg-black text-sm text-black py-2">
             <div className="max-w-screen-lg mx-auto px-4 text-center">
               <a
                 href="https://adao.ai"
