@@ -12,6 +12,19 @@ const Navigation = ({ domain, logo }) => {
     <Disclosure data-id={id} as="nav" className="bg-white ">
       {({ open }) => (
         <>
+          <div className="flash-news bg-yellow-100 text-sm text-black py-2">
+            <div className="max-w-screen-lg mx-auto px-4 text-center">
+              <a
+                href="https://adao.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                <span className="blink font-bold">Flash News!</span>
+                &nbsp;ADAO token is dropping to your Base chain soon! Get ADAO today while it&apos;s on sale!
+              </a>
+            </div>
+          </div>
           <div className="mx-auto max-w-screen-lg px-4 sm:px-6 lg:px-6">
             <div className="flex h-16 justify-between md:flex-nowrap ">
               <div className="hidden sm:flex sm:space-x-6">

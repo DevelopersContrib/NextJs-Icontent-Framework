@@ -1,4 +1,5 @@
 import './globals.scss'
+import './custom.css'
 import HeaderScript from '@/components/includes/HeaderScript'
 import { getData, getDomain } from '@/lib/data'
 

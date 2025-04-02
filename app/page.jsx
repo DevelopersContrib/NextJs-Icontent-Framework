@@ -8,6 +8,7 @@ import BlogPosts from '@/components/BlogPostsComponent';
 
 import Navigation from '@/components/includes/Navigation';
 import Footer from '@/components/includes/Footer';
+import { CTABannerSection } from '@/components/CTABanner';
 
 const Home = async () => {
   const c = await getData();
@@ -27,7 +28,7 @@ const Home = async () => {
         {/* Start:: 3 Columns */}
         <BlogPosts />
       </div>
-
+      <CTABannerSection />
       <Footer domain={c.data.domainName} socials={socials} />
     </>
   );
