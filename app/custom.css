@@ -5,6 +5,8 @@
     overflow: hidden;
     white-space: nowrap;
     position: relative;
+    margin: 0 auto;
+    width: 1024px;
   }
   
   .flash-news a {
