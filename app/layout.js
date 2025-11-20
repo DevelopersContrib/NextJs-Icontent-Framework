@@ -1,6 +1,7 @@
 import './custom.css';
 import './globals.scss';
 import { getData } from '@/lib/data';
+import First100FoundersModalWrapper from "@/components/First100FoundersModalWrapper";
 
 export const dynamic = 'force-dynamic';
 
@@ -52,6 +53,7 @@ export async function generateMetadata() {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <First100FoundersModalWrapper />
       <body>{children}</body>
     </html>
   );
