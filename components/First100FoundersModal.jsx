@@ -287,14 +287,14 @@ export const First100FoundersModal = ({
     >
       {/* Content Container - scrollable only if content overflows */}
       <div
-        className="flex flex-col items-center justify-center p-4 md:p-8 lg:p-12 overflow-y-auto"
+        className="flex flex-col items-center p-4 md:p-8 lg:p-12 pt-24 overflow-y-auto"
         style={{
           position: 'relative',
-          minHeight: '100vh',
+          minHeight: '100%',
           width: '100%',
           zIndex: 10,
           pointerEvents: 'auto',
-          maxHeight: '100vh',
+          maxHeight: '100%',
         }}
       >
         {/* Decorative overlays and blobs */}
@@ -346,14 +346,14 @@ export const First100FoundersModal = ({
         <div className="max-w-6xl w-full space-y-8 md:space-y-12" style={{ fontFamily: 'Montserrat, sans-serif' }}>
           {/* Header Section */}
           <div className="text-center space-y-6">
-            <div className="tw-inline-flex tw-items-center tw-space-x-2 tw-bg-gradient-to-r tw-from-yellow-400 tw-to-orange-500 tw-rounded-full tw-px-6 tw-py-2 tw-shadow-xl tw-mb-4 tw-border tw-border-yellow-300 tw-text-xs tw-font-bold tw-uppercase tw-tracking-wider">
-              <Sparkles className="tw-w-5 tw-h-5 tw-text-white tw-animate-pulse" />
-              <span className="tw-text-white tw-font-bold tw-text-xs tw-uppercase tw-tracking-wider">
+            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full px-6 py-2 shadow-xl mb-4 border border-yellow-300 text-xs font-bold uppercase tracking-wider">
+              <Sparkles className="w-5 h-5 text-white animate-pulse" />
+              <span className="text-white font-bold text-xs uppercase tracking-wider">
                 {content?.title || 'Limited Time Offer'}
               </span>
             </div>
             
-            <h1 className="tw-text-5xl md:tw-text-6xl lg:tw-text-7xl tw-font-extrabold tw-mb-6 tw-leading-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight">
               <span
                 style={{
                   background: 'linear-gradient(to right, rgb(253, 224, 71), rgb(255, 255, 255), rgb(147, 197, 253))',
@@ -368,27 +368,27 @@ export const First100FoundersModal = ({
               </span>
             </h1>
             
-            <p className="tw-text-2xl md:tw-text-3xl lg:tw-text-4xl tw-text-white/90 tw-font-semibold tw-mb-4">
+            <p className="text-2xl md:text-3xl lg:text-4xl text-white/90 font-semibold mb-4">
               {content?.description || "Don't wait for the public launch!"}
             </p>
-            <p className="tw-text-xl md:tw-text-2xl tw-text-white/70 tw-max-w-3xl tw-mx-auto">
+            <p className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto">
               Secure your spot now and get exclusive access to VentureOS platform with incredible benefits.
             </p>
           </div>
 
           {/* Benefits Grid - Larger for full screen */}
-          <div className="tw-max-w-5xl tw-mx-auto">
-            <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-6 md:tw-gap-8">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {defaultBenefits.map((benefit, index) => (
                 <div
                   key={index}
-                  className="tw-bg-white tw-bg-opacity-5 tw-rounded-2xl tw-shadow-lg tw-border tw-border-white/20 tw-px-6 tw-py-8 tw-flex tw-items-center tw-space-x-4 tw-transition-all tw-duration-300 hover:tw-scale-105 hover:tw-shadow-2xl"
+                  className="bg-white bg-opacity-5 rounded-2xl shadow-lg border border-white/20 px-6 py-8 flex items-center space-x-4 transition-all duration-300 hover:scale-105 hover:shadow-2xl"
                 >
-                  <div className={`tw-flex-shrink-0 ${benefit.color ? 'tw-' + benefit.color : 'tw-text-white'} tw-p-3 tw-bg-white/10 tw-rounded-xl tw-shadow-md`}>
+                  <div className={`flex-shrink-0 ${benefit.color ? benefit.color : 'text-white'} p-3 bg-white/10 rounded-xl shadow-md`}>
                     {benefit.icon}
                   </div>
                   <div>
-                    <span className="tw-text-white tw-text-lg md:tw-text-xl tw-font-semibold tw-leading-relaxed">{benefit.text}</span>
+                    <span className="text-white text-lg md:text-xl font-semibold leading-relaxed">{benefit.text}</span>
                   </div>
                 </div>
               ))}
@@ -396,28 +396,28 @@ export const First100FoundersModal = ({
           </div>
 
           {/* CTA Buttons - Larger and more prominent */}
-          <div className="tw-flex tw-flex-col sm:tw-flex-row tw-items-center tw-justify-center tw-gap-6 tw-mt-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8">
             <button
               onClick={handleNavigate}
-              className="tw-group tw-px-12 tw-py-6 tw-text-white tw-font-bold tw-text-xl md:tw-text-2xl tw-rounded-2xl tw-transition-all tw-duration-300 tw-shadow-2xl tw-transform hover:tw-scale-110 tw-flex tw-items-center tw-space-x-3 tw-w-full sm:tw-w-auto tw-justify-center"
+              className="group px-12 py-6 text-white font-bold text-xl md:text-2xl rounded-2xl transition-all duration-300 shadow-2xl transform hover:scale-110 flex items-center space-x-3 w-full sm:w-auto justify-center"
               style={{
                 background: 'linear-gradient(to right, rgb(147, 51, 234), rgb(37, 99, 235), rgb(79, 70, 229))',
                 border: 'none',
               }}
             >
               <span>{content?.ctaText || 'Reserve My Founder Spot'}</span>
-              <ArrowRight className="tw-w-6 tw-h-6 tw-group-hover:tw-translate-x-2 tw-transition-transform" />
+              <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
             </button>
             <button
               onClick={handleClose}
-              className="tw-px-10 tw-py-6 tw-bg-white/10 tw-backdrop-blur-md tw-text-white tw-font-semibold tw-text-lg tw-rounded-2xl hover:tw-bg-white/20 tw-border tw-border-white/30 tw-transition-all tw-w-full sm:tw-w-auto"
+              className="px-10 py-6 bg-white/10 backdrop-blur-md text-white font-semibold text-lg rounded-2xl hover:bg-white/20 border border-white/30 transition-all w-full sm:w-auto"
             >
               {content?.dismissText || 'Maybe Later'}
             </button>
           </div>
 
           {/* Footer Note */}
-          <p className="tw-text-center tw-text-white/60 tw-text-lg md:tw-text-xl tw-mt-8">
+          <p className="text-center text-white/60 text-lg md:text-xl mt-8">
             {content?.footerText || '🔥 Only 100 slots available • Act fast before they\'re gone!'}
           </p>
         </div>
