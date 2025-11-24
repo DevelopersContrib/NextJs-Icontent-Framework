@@ -397,8 +397,10 @@ export const First100FoundersModal = ({
 
           {/* CTA Buttons - Larger and more prominent */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8">
-            <button
-              onClick={handleNavigate}
+            <a
+              href="https://www.ventureos.com/first100founders"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group px-12 py-6 text-white font-bold text-xl md:text-2xl rounded-2xl transition-all duration-300 shadow-2xl transform hover:scale-110 flex items-center space-x-3 w-full sm:w-auto justify-center"
               style={{
                 background: 'linear-gradient(to right, rgb(147, 51, 234), rgb(37, 99, 235), rgb(79, 70, 229))',
@@ -407,7 +409,7 @@ export const First100FoundersModal = ({
             >
               <span>{content?.ctaText || 'Reserve My Founder Spot'}</span>
               <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
-            </button>
+            </a>
             <button
               onClick={handleClose}
               className="px-10 py-6 bg-white/10 backdrop-blur-md text-white font-semibold text-lg rounded-2xl hover:bg-white/20 border border-white/30 transition-all w-full sm:w-auto"
