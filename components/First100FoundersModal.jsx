@@ -270,17 +270,10 @@ export const First100FoundersModal = ({
 
   return (
     <div
-      className="fixed inset-0 w-full h-full"
+      className="fixed inset-0"
       style={{
         zIndex: zIndex || 99999,
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        width: '100vw',
-        height: '100vh',
-        background: 'linear-gradient(to bottom right, #581c87, #1e3a8a, #312e81)', // fully opaque
+        background: 'linear-gradient(to bottom right, #581c87, #1e3a8a, #312e81)',
         overflow: 'hidden',
       }}
       data-testid="first100founders-modal"
@@ -299,15 +292,8 @@ export const First100FoundersModal = ({
       >
         {/* Decorative overlays and blobs */}
         <div
-          className="absolute inset-0"
+          className="fixed inset-0"
           style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            width: '100%',
-            height: '100%',
             background: 'linear-gradient(to right, rgba(234, 179, 8, 0.2), rgba(168, 85, 247, 0.2), rgba(59, 130, 246, 0.2))',
             zIndex: 1,
             pointerEvents: 'none',
